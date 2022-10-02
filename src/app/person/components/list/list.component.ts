@@ -30,12 +30,17 @@ export class ListComponent implements OnInit {
   }
 
   editarPerson(person: any): void {
-    alert('Editando persona ' + person.name)
+    this.router.navigate(['/person/edit/'+person.id], {
+      relativeTo: this.activatedRoute
+    })
   }
 
   deletePerson(person: any): void {
-    alert('Eliminado persona ' + person.name)
-
+    if(confirm('¿Seguro que desea eliminar a '+person.name+'?')){
+      this.personService.delete(person.id).subscribe(() => {
+        this.getPerson()
+      })
+    }
   }
 
   agregarPerson(): void {

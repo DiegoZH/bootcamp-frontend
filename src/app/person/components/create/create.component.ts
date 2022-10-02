@@ -24,7 +24,7 @@ export class CreateComponent implements OnInit {
       lastname: [{value: null, disabled: false}, [Validators.required]],
       documentNumber: [{value: null, disabled: false}, [Validators.required]],
       documentTypeId: [{value: null, disabled: false}, [Validators.required]],
-      birthday: [{value: null, disabled: false}, []],
+      birthday: [{value: null, disabled: false}, [Validators.required]],
     })
   }
 
